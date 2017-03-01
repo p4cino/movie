@@ -16,11 +16,10 @@ class UsersTableSeeder extends Seeder
      {
 
          DB::table('users')->insert([
-
             'name' => $faker->firstName,
-            'email' => str_random(10).'@gmail.com',
-            'password' => bcrypt('secret'),
-
+            'email' => $faker->unique()->email,
+            'password' => bcrypt('hasło'),
+            'remember_token' => str_random(10),
             ]);
      }
  }
